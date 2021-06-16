@@ -1,0 +1,68 @@
+{block content}
+	
+
+    <div id="clenove" style="
+         float:left; 
+         width:25%;
+         height:700px;
+         padding: 10px;   
+        ">
+        <h1 n:block="title">Členové</h1>
+      <table border=1>
+            <tr>
+                <th>#</th>
+                <th>Jméno</th>
+                <th>Přijmení</th>    
+                <th>Typ</th>  
+            </tr>   
+            {foreach $members as $clen}
+            <tr>     
+                <td>{$clen->id_clena}</td>   
+                <td>{$clen->jmeno}</td>
+                <td>{$clen->prijmeni}</td>           
+                <td>{$clen->typ}</td>  
+            </tr>
+            {/foreach}
+       </table>
+            
+            <h1>Vlož člena</h1>
+            
+           {control insertForm}
+           
+         </div>
+           <div id="zavodni_tym" style="
+                float:left;
+                width:25%;
+                height:280px;
+                ">
+               <h1>Týmy</h1>
+               <table border=1>
+            <tr>
+                <th>#</th>
+                <th>Název</th>
+                <th>Závodníci</th>    
+                <th>Spolujezdci</th>   
+                <th>Technici</th>   
+                <th>Manažeři</th>   
+                <th>Fotografové</th>   
+            </tr>   
+            {foreach $teams as $tym}
+            <tr>     
+                <td>{$tym->id_tymu}</td>   
+                <td>{$tym->nazev}</td>
+                <td>{$tym->id_clena1}</td>           
+                <td>{$tym->id_clena2}</td>   
+                <td>{$tym->id_clena3}</td>   
+                <td>{$tym->id_clena4}</td>   
+                <td>{$tym->id_clena5}</td>   
+            </tr>
+            {/foreach}
+       </table>
+          
+            <h1>Sestav tým</h1>
+            
+          {control secondInstertForm}
+       
+    </div>       
+            
+{/block}
